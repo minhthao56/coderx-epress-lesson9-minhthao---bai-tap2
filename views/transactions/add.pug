@@ -1,0 +1,32 @@
+h1 Select your user and book which you want to borrow
+-var current_datetime = new Date()
+-var formatted_date = current_datetime.getHours() + " giờ " + current_datetime.getMinutes() + " phút "+", "+" Ngày " + current_datetime.getDate() +" Tháng "+ (current_datetime.getMonth() + 1) + " Năm " + current_datetime.getFullYear()
+
+
+form#form(action='/trans/add', method='POST')
+  input#input(type='text', name='timeb' value = formatted_date, style="display: none;")
+  br
+  input#input(type='text', name='isComplete' value = "false", style="display: none;")
+  br
+  button#bts Borrow
+
+select#cars(name='bookId', form='form')
+  each title in titles
+    option(value= title.id)=title.tl
+select#cars(name='userId', form='form')
+  each user in users
+    option(value=user.id)=user.name 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
